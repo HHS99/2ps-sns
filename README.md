@@ -1,1 +1,1 @@
-# repo-2ps-sns
+2ps-sns
