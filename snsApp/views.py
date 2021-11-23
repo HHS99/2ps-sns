@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import authenticate, login
 from .models import BoardModel
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -24,11 +25,12 @@ def loginFunc(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
-        return render(request, 'login.html', {'context': 'login success'})
+        return redirect('list')
     else:
-        return render(request, 'login.html', {'context': 'login success'})
-  return render(request, 'login.html', {'context': 'get'})
+        return render(request, 'login.html', {})
+  return render(request, 'login.html', {})
 
+@login_required
 def listFunc(request):
   object_list = BoardModel.objects.all()
   return render(request, 'list.html', {'object_list': object_list})
