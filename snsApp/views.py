@@ -30,16 +30,23 @@ def loginFunc(request):
         return render(request, 'login.html', {})
   return render(request, 'login.html', {})
 
+def logoutFunc(request):
+  logout(request)
+  return redirect('login')
+
 @login_required
 def listFunc(request):
   object_list = BoardModel.objects.all()
   return render(request, 'list.html', {'object_list': object_list})
 
-# @login_required
+@login_required
 def detailFunc(request, pk):
   object = get_object_or_404(BoardModel, pk=pk)
   return render(request, 'detail.html', {'object': object})
 
-def logoutFunc(request):
-  logout(request)
-  return redirect('login')
+@login_required
+def goodFunc(request, pk):
+  object = get_object_or_404(BoardModel, pk=pk)
+  object.good = object.good + 1
+  object.save()
+  return redirect('list')
