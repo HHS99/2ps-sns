@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import authenticate, login, logout
@@ -34,6 +34,11 @@ def loginFunc(request):
 def listFunc(request):
   object_list = BoardModel.objects.all()
   return render(request, 'list.html', {'object_list': object_list})
+
+# @login_required
+def detailFunc(request, pk):
+  object = get_object_or_404(BoardModel, pk=pk)
+  return render(request, 'detail.html', {'object': object})
 
 def logoutFunc(request):
   logout(request)
