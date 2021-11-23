@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.db import IntegrityError
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .models import BoardModel
 from django.contrib.auth.decorators import login_required
 
@@ -35,3 +35,6 @@ def listFunc(request):
   object_list = BoardModel.objects.all()
   return render(request, 'list.html', {'object_list': object_list})
 
+def logoutFunc(request):
+  logout(request)
+  return redirect('login')
