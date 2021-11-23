@@ -122,7 +122,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-STATIFILES_DIRS = [BASE_DIR / 'static']
+STATICFILES_DIRS = [str(BASE_DIR / 'static')]
 
 MEDIA_ROOT = BASE_DIR / 'media'
 
