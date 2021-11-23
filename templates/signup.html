@@ -2,12 +2,13 @@
 
 {% block content %}
 <body class="text-center">
+  {{ error }}
   <main class="form-signin">
     <form method="POST">{% csrf_token %}
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
       <div class="form-floating">
-        <input type="email" class="form-control" name='username' placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
+        <input type="text" class="form-control" name='username' placeholder="name">
+        <label for="floatingInput">UserName</label>
       </div>
       <div class="form-floating">
         <input type="password" class="form-control" name='password' placeholder="Password">
