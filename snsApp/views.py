@@ -50,3 +50,15 @@ def goodFunc(request, pk):
   object.good = object.good + 1
   object.save()
   return redirect('list')
+
+@login_required
+def readFunc(request, pk):
+  object = get_object_or_404(BoardModel, pk=pk)
+  username = request.user.get_username()
+  if username in object.readText:
+    return redirect('list')
+  else:
+    object.read = object.read + 1
+    object.readText = object.readText + ' ' + username
+    object.save()
+    return redirect('list')
