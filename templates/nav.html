@@ -1,0 +1,16 @@
+{% load static %} <!-- staticファイル呼び込み -->
+
+<nav class="navbar navbar-expand-md fixed-top">
+  <a class="navbar-brand" href="#">
+    <img src="{% static '/images/logo.png' %}" alt="" width="68" height="65" class="d-inline-block align-text-top">
+  </a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <!-- navリスト追加 -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">home</a>
+      </li> -->
+    </ul>
+    <a class="nav-link logout" href="{% url 'logout' %}">ログアウト</a>
+  </div>
+</nav>

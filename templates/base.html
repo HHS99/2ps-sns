@@ -12,11 +12,14 @@
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
 
   </head>
-
-    {% block header %}
-    {% endblock header %}
-
-    {% block content %}
-    {% endblock content %}
+  <body class="d-flex flex-column">
+    <header>
+      {% include 'nav.html' %}
+    </header>
+    <div class="sns-contents">
+      {% block content %}
+      {% endblock content %}
+    </div>
+  </body>
 
 </html>
