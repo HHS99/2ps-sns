@@ -22,14 +22,15 @@ def signupFunc(request):
 
 def loginFunc(request):
   if request.method == 'POST':
-    username = request.POST['username']
+    email = request.POST['email']
     password = request.POST['password']
+    username = User.objects.get(email=email.lower()).username
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
         return redirect('list')
     else:
-        return render(request, 'login.html', {})
+        return render(request, 'login.html', {'error':'メールアドレスまたはパスワードが異なります'})
   return render(request, 'login.html', {})
 
 def logoutFunc(request):

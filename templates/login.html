@@ -1,27 +1,30 @@
 {% extends "base.html" %}
-{% load static %}
-
-{% block customcss %}
-<link rel="stylesheet" href="{% static 'style.css' %}">
-{% endblock customcss %}
+{% load static %} <!-- staticファイル呼び込み -->
 
 {% block content %}
 <body class="text-center">
-  {{ error }}
-  <main class="form-signin">
-    <form method="POST">{% csrf_token %}
-      <h1 class="h3 mb-3 fw-normal">Please login</h1>
-      <div class="form-floating">
-        <input type="text" class="form-control" name="username" placeholder="name">
-        <label for="floatingInput">UserName</label>
+  <main class="login">
+    <div class="card">
+      <div class="card-body">
+        <form method="POST">{% csrf_token %}
+          <img class="mb-4" src="{% static '/images/logo.png' %}" alt="" width="174" height="75">
+          <div class="card-body">
+            <div class="form-floating">
+              <input type="email" class="form-control" name="email" placeholder="メールアドレス">
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" name="password" placeholder="パスワード">
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">login</button>
+          </div>
+        </form>
+        {% if error != None %}
+        <div class="alert alert-danger" role="alert">
+          {{ error }}
+        </div>
+        {% endif %}
       </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" name="password" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-      </div>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">login</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
-    </form>
+    </div>
   </main>
 </body>
 {% endblock content %}
