@@ -18,7 +18,30 @@ body {
 }
 
 .sns-contents {
-  margin-top: 4rem;
+  margin: 4rem 5rem 2rem 5rem;
+}
+
+/* .card-header::before {
+  background-color: #3f51b5;
+  width: 6px;
+  height: 30px;
+  content: "";
+  position: absolute;
+  
+} */
+
+.card-header {
+  font-weight: bold;
+}
+
+.logo-title {
+  width: 174;
+  height: 75;
+}
+
+.logo {
+  width: 68;
+  height: 65;
 }
 
 /* nav.html */
