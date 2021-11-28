@@ -5,14 +5,28 @@
 <div class="card">
   <h5 class="card-header">揭示物</h5>
   <div class="card-body">
-    {% for item in object_list %}
-    <div class="alert alert-success" role="alert">
-      <p>タイトル：<a href="{% url 'detail' item.pk %}">{{item.title}}</a></p>
-        <p>投稿者：{{item.author}}</p>
-        <a href="#" class="btn btn-primary disabled" role="button" aria-pressed="true">いいね：{{item.good}}</a>
-        <a href="#" class="btn btn-secondary disabled" role="button" aria-pressed="true">既読：{{item.read}}人</a>
-    </div>
-    {% endfor %}
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">タイトル</th>
+          <th scope="col">作成者</th>
+          <th scope="col">作成日時</th>
+          <th scope="col">アクセス数</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in object_list %}
+        <tr>
+          <th scope="row">{{ item.board_id }}</th>
+          <td><a href="{% url 'detail' item.board_id %}">{{ item.title }}</a></td>
+          <td>{{ item.author }}</td>
+          <td>{{ item.create_date }}</td>
+          <td>{{ item.read }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
 </div>
 
