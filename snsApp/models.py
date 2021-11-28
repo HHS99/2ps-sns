@@ -6,7 +6,7 @@ from django.utils.timezone import now
 # Create your models here.
 
 class BoardModel(models.Model):
-  board_id = models.AutoField(primary_key=True, default='1')
+  board_id = models.AutoField(primary_key=True)
   title = models.CharField(max_length=100, blank=False)
   content = models.TextField(blank=False)
   author = models.CharField(max_length=20, blank=False)
