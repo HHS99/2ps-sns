@@ -1,13 +1,71 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style type="text/css">
+    .content {
+        max-width:500px;
+        margin: auto;
+        padding:10px;
+    }
 
+    .board_for_read {
+        width: 100%;
+        background-color:#f1f1f1;
+    }
+
+    #title {
+        height: 32px;
+        width: 100%;
+        border-radius: 0.5em;
+        border: none;
+        font-family: inherit;
+        font-size: inherit;
+    }
+
+    textarea {
+        width: 100%;
+        font-family: inherit;
+        font-size: 100%;
+        resize: none;
+        border-radius: 0.5em;
+        padding-block: 10px;
+        border: 0px;
+    }
+
+    .td_title {
+        background-color: #d8d8d8
+    }
+</style>
 <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
-<p>タイトル：<input type="text" name="title"></p>
-<p>内容：<input type="text" name="content"></p>
-<p>画像：<input type="file" name="snsImage"></p>
-<input type="hidden" name="author" value="{{ user.username }}">
-
-<input type="submit" value="作成する">
+    <h5 class="card-header">揭示物作成</h5>
+    <table class="board_for_read">
+        <tbody>
+            <tr>
+                <td class="td_title" style="text-align:center; width:20%;">タイトル</td>
+                <td style="padding:10px;">
+                    <input type="text" name="title" id="title">
+                </td>
+            </tr>
+            <tr>
+                <td class="td_title" style="text-align:center;">内容</td>
+                <td style="padding:10px;">
+                    <textarea type="text" name="content" rows="10"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_title" style="text-align:center;">画像</td>
+                <td style="padding:10px;">
+                    <input type="file" name="snsImage">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="hidden" name="author" value="{{ user.username }}">
+    <div style="text-align:right;padding: 5px;">
+        <input type="submit" value="作成する">
+    </div>
 </form>
+<div style="text-align:left;">
+    <a href="{% url 'list' %}">> 揭示物へ</a>
+</div>
 {% endblock content %}
