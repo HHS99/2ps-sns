@@ -81,3 +81,37 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.content {
+  max-width: 500px;
+  margin: auto;
+  padding: 10px;
+}
+
+.board_for_read {
+  width: 100%;
+  background-color: #f1f1f1;
+}
+
+#title {
+  height: 32px;
+  width: 100%;
+  border-radius: 0.5em;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 100%;
+  resize: none;
+  border-radius: 0.5em;
+  padding-block: 10px;
+  border: 0px;
+}
+
+.td_title {
+  background-color: #d8d8d8;
+}
