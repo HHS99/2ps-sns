@@ -1,13 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-
 <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
-<p>タイトル：<input type="text" name="title"></p>
-<p>内容：<input type="text" name="content"></p>
-<p>画像：<input type="file" name="snsImage"></p>
-<input type="hidden" name="author" value="{{ user.username }}">
-
-<input type="submit" value="作成する">
+    <h5 class="card-header">揭示物作成</h5>
+    <table class="board_for_read">
+        <tbody>
+            <tr>
+                <td class="td_title" style="text-align:center; width:15%;">タイトル</td>
+                <td style="padding:10px;">
+                    <input type="text" name="title" id="title">
+                </td>
+            </tr>
+            <tr>
+                <td class="td_title" style="text-align:center;">内容</td>
+                <td style="padding:10px;">
+                    <textarea type="text" name="content" rows="10"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_title" style="text-align:center;">画像</td>
+                <td style="padding:10px;">
+                    <input type="file" name="file">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="hidden" name="author" value="{{ user.username }}">
+    <br>
+    <a href="{% url 'list' %}" class="btn btn-secondary" role="button">揭示物へ</a>
+    <button type="submit" class="btn btn-primary float-right">作成する</button>
 </form>
 {% endblock content %}
