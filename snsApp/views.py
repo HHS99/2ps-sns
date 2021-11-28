@@ -44,8 +44,8 @@ def listFunc(request):
 
 @login_required
 def detailFunc(request, pk):
-  object = get_object_or_404(BoardModel, pk=pk)
-  return render(request, 'detail.html', {'object': object})
+  boardDetail = get_object_or_404(BoardModel, pk=pk)
+  return render(request, 'detail.html', {'boardDetail': boardDetail})
 
 @login_required
 def goodFunc(request, pk):

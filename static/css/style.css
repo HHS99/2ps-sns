@@ -21,17 +21,13 @@ body {
   margin: 4rem 5rem 2rem 5rem;
 }
 
-/* .card-header::before {
-  background-color: #3f51b5;
-  width: 6px;
-  height: 30px;
-  content: "";
-  position: absolute;
-  
-} */
-
 .card-header {
   font-weight: bold;
+  background-color: #e4ffed;
+}
+
+.btn-area {
+  margin: 1rem 0.1rem;
 }
 
 .logo-title {
@@ -80,4 +76,14 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+/* detail.html */
+.detail-title {
+  border-bottom: solid 1px #00c140;
+}
+
+.detail-content {
+  padding: 1.5rem;
+  border-bottom: inset;
 }
