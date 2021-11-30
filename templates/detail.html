@@ -11,6 +11,12 @@
     <div class="card-text detail-content">
       {{ boardDetail.content }}
     </div>
+    {% if boardDetail.file != None %}
+    <footer class="blockquote-footer">
+      添付ファイル：
+      <a href="{{ boardDetail.file.url }}">{{ boardDetail.file }}</a>
+    </footer>
+    {% endif %}
   </div>
 </div>
 <div class="btn-area d-flex flex-row justify-content-between">
