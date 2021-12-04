@@ -16,3 +16,10 @@ class BoardModel(models.Model):
   delete_flg = models.BooleanField(default=False)
   delete_date = models.DateTimeField(blank=True, null=True)
   create_date = models.DateTimeField(default=now, blank=True)
+
+class CommentModel(models.Model):
+  board = models.ForeignKey(BoardModel, on_delete=models.CASCADE)
+  comment_no = models.AutoField(primary_key=True)
+  comment = models.TextField(blank=False, null=False)
+  create_date = models.DateTimeField(default=now)
+

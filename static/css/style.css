@@ -88,6 +88,15 @@ body {
   border-bottom: inset;
 }
 
+.comment-content {
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  border-bottom: inset;
+}
+
+.comment-content-date {
+  font-size: small;
+}
+
 /* create.html */
 .content {
   max-width: 500px;
