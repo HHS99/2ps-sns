@@ -50,15 +50,10 @@ def listFunc(request):
 @login_required
 def detailFunc(request, pk):
     boardDetail = get_object_or_404(BoardModel, pk=pk)
+    files = boardDetail.file
     commentsQuerySet = CommentModel.objects.filter(board=boardDetail)
     comments = commentsQuerySet.values()
-    # print(comments.comment_no)
-    # print(comments.comment)
-    return render(request, 'detail.html', {'boardDetail': boardDetail, 'comments': comments})
-# def detailFunc(request, pk):
-#     boardDetail = get_object_or_404(BoardModel, pk=pk)
-#     comments = get_object_or_404(CommentModel, pk=pk)
-#     return render(request, 'detail.html', {'boardDetail': boardDetail, 'comments': comments})
+    return render(request, 'detail.html', {'boardDetail': boardDetail, 'comments': comments, 'file': files})
 
 @login_required
 def newCommentFunc(request, pk):

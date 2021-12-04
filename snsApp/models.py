@@ -10,7 +10,7 @@ class BoardModel(models.Model):
   title = models.CharField(max_length=100, blank=False)
   content = models.TextField(blank=False)
   author = models.CharField(max_length=20, blank=False)
-  file = models.FileField(blank=True, upload_to='')
+  file = models.FileField(blank=True, null=True, upload_to='')
   good = models.IntegerField(blank=True, default=0)
   read = models.IntegerField(blank=True, default=0)
   delete_flg = models.BooleanField(default=False)

@@ -11,10 +11,10 @@
     <div class="card-text detail-content">
       {{ boardDetail.content }}
     </div>
-    {% if boardDetail.file != None %}
+    {% if file != '' %}
     <footer class="blockquote-footer">
       添付ファイル：
-      <a href="{{ boardDetail.file.url }}">{{ boardDetail.file }}</a>
+      <a href="{{ file.url }}">{{ file }}</a>
     </footer>
     {% endif %}
   </div>
