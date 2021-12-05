@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap4', # bootstrap4
-    'snsApp.apps.SnsappConfig', # snsAppとの連携設定
+    'bootstrap4',  # bootstrap4
+    'snsApp.apps.SnsappConfig',  # snsAppとの連携設定
 ]
 
 MIDDLEWARE = [
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'snsProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'], # templatesとの連携設定
+        'DIRS': [BASE_DIR / 'templates'],  # templatesとの連携設定
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -65,8 +65,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            'builtins':[ 
-                'bootstrap4.templatetags.bootstrap4', # bootstrap4
+            'builtins':[
+                'bootstrap4.templatetags.bootstrap4',  # bootstrap4
             ],
         },
     },
@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 

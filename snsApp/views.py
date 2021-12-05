@@ -49,8 +49,9 @@ def listFunc(request):
 
 @login_required
 def detailFunc(request, pk):
-  boardDetail = get_object_or_404(BoardModel, pk=pk)
-  return render(request, 'detail.html', {'boardDetail': boardDetail})
+    boardDetail = get_object_or_404(BoardModel, pk=pk)
+    return render(request, 'detail.html', {'boardDetail': boardDetail})
+
 
 @login_required
 def goodFunc(request, pk):
@@ -78,3 +79,10 @@ class BoardCreate(CreateView):
     model = BoardModel
     fields = ('title', 'content', 'author', 'file')
     success_url = reverse_lazy('list')
+
+
+@login_required
+def removeFunc(request, pk):
+    boardDetail = get_object_or_404(BoardModel, pk=pk)
+    boardDetail.delete()
+    return redirect('list')

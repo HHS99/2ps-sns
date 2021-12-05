@@ -11,10 +11,17 @@
     <div class="card-text detail-content">
       {{ boardDetail.content }}
     </div>
+    {% if boardDetail.file != None %}
+    <footer class="blockquote-footer">
+      添付ファイル：
+      <a href="{{ boardDetail.file.url }}">{{ boardDetail.file }}</a><br>
+      <img src = "{{ boardDetail.file.url }}" alt="" height="100">
+    </footer>
+    {% endif %}
   </div>
 </div>
 <div class="btn-area d-flex flex-row justify-content-between">
   <a class="btn btn-secondary" href="{% url 'list' %}" role="button">戻る</a>
-  <div></div> <!-- 更新するボタンを真ん中にするため、空div追加 -->
+  <a class="btn btn-primary" href="{% url 'remove' boardDetail.board_id %}" role="button">削除</a>
 </div>
 {% endblock content %}
