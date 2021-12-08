@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import authenticate, login, logout
-from .models import BoardModel
+from .models import BoardModel, CommentModel
 from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
@@ -50,8 +50,20 @@ def listFunc(request):
 @login_required
 def detailFunc(request, pk):
     boardDetail = get_object_or_404(BoardModel, pk=pk)
-    return render(request, 'detail.html', {'boardDetail': boardDetail})
+    files = boardDetail.file
+    commentsQuerySet = CommentModel.objects.filter(board=boardDetail)
+    comments = commentsQuerySet.values()
+    return render(request, 'detail.html', {'boardDetail': boardDetail, 'comments': comments, 'file': files})
 
+@login_required
+def newCommentFunc(request, pk):
+    print('11111')
+    if request.method == 'POST':
+        comment = request.POST['comment']
+        board = get_object_or_404(BoardModel, pk=pk)
+        print('asdf')
+        CommentModel.objects.create(comment=comment, board=board)
+    return redirect('detail', pk=pk)
 
 @login_required
 def goodFunc(request, pk):
